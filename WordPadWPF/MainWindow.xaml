@@ -1,0 +1,56 @@
+﻿<Window x:Class="WordPadWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordPadWPF"
+        mc:Ignorable="d"
+        Title="WPF WordPad" Height="450" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Name="path_txtbox" MouseLeave="mouse_leave_txtbox" MouseEnter="mouse_enter_textbox" Text="Enter Path" Grid.Column="0"/>
+                <Button Name="open_button" Click="open_button_Click" Grid.Column="1" Background="Transparent">
+                    <Image  Source= "\images\folder.png"/>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Name="save_button" Grid.Column="0" Content="Save" Background="Transparent" Click="save_button_Click"/>
+                <CheckBox Name="check_box" Grid.Column="1" VerticalAlignment="Center" Content="Auto Save"/>
+                <Button Name="cut_button" Grid.Column="2" Content="Cut" Background="Transparent" Click="cut_button_Click"/>
+                <Button Name="copy_button" Grid.Column="3" Content="Copy" Background="Transparent" Height="21" VerticalAlignment="Top" Click="copy_button_Click"/>
+                <Button Name="paste_button" Grid.Column="4" Content="Paste" Background="Transparent" Height="21" VerticalAlignment="Bottom" Click="paste_button_Click"/>
+                <Button Name="select_all_button" Grid.Column="5" Content="Select All" Background="Transparent" Click="select_all_button_Click"/>
+            </Grid>
+
+        </Grid>
+
+        <RichTextBox Name="rich_textbox" TextChanged="rich_txtbox_TextChanged" Grid.Row="1"></RichTextBox>
+
+    </Grid>
+</Window>
